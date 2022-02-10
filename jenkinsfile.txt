@@ -10,10 +10,12 @@ node('Dev') {
 }
     stage('ContinuousTesting_PB') {
     git 'https://github.com/vasudevkalluri/functional-testing.git'
-    sh '/home/ubuntu/.jenkins/workspace/master_PB/testing.jar'
-
+    sh 'java -jar /home/ubuntu/.jenkins/workspace/master_PB/testing.jar'
 }
  
-   }
+    stage('ContinuousDelivery_PB') {
+   sh 'scp /home/ubuntu/.jenkins/workspace/master_PB/webapp/target/webapp.war ubuntu@172.31.23.247:/var/lib/tomcat8/webapps/Prodapp.war'
+}
+            }
 
   
