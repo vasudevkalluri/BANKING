@@ -1,0 +1,9 @@
+node('Dev') {
+        stage('ContinuousDownload_CC') {
+     git 'https://github.com/vasudevkalluri/Maven.git'
+}
+    stage('ContinuousBuild') {
+     sh 'mvn package'
+}
+}
+  
