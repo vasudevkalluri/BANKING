@@ -1,5 +1,5 @@
 node('Dev') {
-        stage('ContinuousDownload_CC') {
+        stage('ContinuousDownload_master:') {
      git 'https://github.com/vasudevkalluri/Maven.git'
 }
     stage('ContinuousBuild') {
