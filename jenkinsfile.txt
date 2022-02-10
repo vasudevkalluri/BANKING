@@ -10,7 +10,7 @@ node('Dev') {
 }
     stage('ContinuousTesting_master') {
     git 'https://github.com/vasudevkalluri/functional-testing.git'
-    sh '/home/ubuntu/.jenkins/workspace/master_master/testing.jar'
+    sh 'java -jar /home/ubuntu/.jenkins/workspace/master_master/testing.jar'
 
 }
     stage('ContinuousDelivery_master') {
