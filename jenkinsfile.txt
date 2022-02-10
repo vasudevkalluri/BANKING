@@ -13,9 +13,7 @@ node('Dev') {
     sh '/home/ubuntu/.jenkins/workspace/master_PB/testing.jar'
 
 }
-    stage('ContinuousDelivery_PB') {
-   sh 'scp /home/ubuntu/.jenkins/workspace/master_PB/webapp/target/webapp.war ubuntu@172.31.23.247:/var/lib/tomcat8/webapps/Prodapp.war'
-}
-            }
+ 
+   }
 
   
