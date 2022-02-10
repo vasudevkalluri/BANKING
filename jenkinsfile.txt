@@ -1,6 +1,3 @@
-https://github.com/ArkLearnersEdge/maven_tp.git
-
-
 node('Dev') {
         stage('ContinuousDownload_PB') {
      git 'https://github.com/vasudevkalluri/Maven.git'
@@ -9,15 +6,15 @@ node('Dev') {
      sh 'mvn package'
 }
     stage('ContinuousDeployment_PB') {
-   sh 'scp /home/ubuntu/.jenkins/workspace/master_LOANS/webapp/target/webapp.war ubuntu@172.31.26.182:/var/lib/tomcat8/webapps/testapp.war'
+   sh 'scp /home/ubuntu/.jenkins/workspace/master_PB/webapp/target/webapp.war ubuntu@172.31.26.182:/var/lib/tomcat8/webapps/testapp.war'
 }
     stage('ContinuousTesting_PB') {
     git 'https://github.com/vasudevkalluri/functional-testing.git'
-    sh '/home/ubuntu/.jenkins/workspace/master_LOANS/testing.jar'
+    sh '/home/ubuntu/.jenkins/workspace/master_PB/testing.jar'
 
 }
     stage('ContinuousDelivery_PB') {
-   sh 'scp /home/ubuntu/.jenkins/workspace/master_LOANS/webapp/target/webapp.war ubuntu@172.31.23.247:/var/lib/tomcat8/webapps/Prodapp.war'
+   sh 'scp /home/ubuntu/.jenkins/workspace/master_PB/webapp/target/webapp.war ubuntu@172.31.23.247:/var/lib/tomcat8/webapps/Prodapp.war'
 }
             }
 
